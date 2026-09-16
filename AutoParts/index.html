@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoParts</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            <span class="icone-logo"><img src="logo2-removebg-preview.png"></span>
+            <h1>AutoPeças</h1>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Peças</a>
+            <a href="#contato">Contato</a>
+
+            <!-- CARRINHO -->
+            <button class="botao-carrinho" onclick="abrirCarrinho()">
+                Carrinho
+                <span id="contador-carrinho">0</span>
+            </button>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         BANNER
+    ========================== -->
+
+    <main>
+
+        <section id="inicio" class="banner">
+
+            <div class="patinhas">
+                [ DESTAQUE ]
+            </div>
+
+            <h2>
+                Potência e precisão para seu veículo
+            </h2>
+
+            <p>
+                Componentes, motores e acessórios
+                para carros e utilitários.
+            </p>
+
+            <button onclick="verProdutos()">
+                Ver peças
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             PRODUTOS
+        ========================== -->
+
+        <section id="produtos">
+
+            <h2 class="titulo-secao">
+                Nossos produtos
+            </h2>
+
+            <div class="produtos">
+
+
+                <!-- PRODUTO 1 -->
+
+                <div class="produto cachorro">
+
+                    <div class="patinhas-produto">
+                    </div>
+
+                    <div class="produto-img">
+                        <img src="images.jpg" alt="Bateria Automotiva 60Ah">
+                    </div>
+
+                    <h3>
+                        Bateria Automotiva 60Ah
+                    </h3>
+
+                    <p>
+                        Partida forte e durabilidade
+                        extrema para o seu motor.
+                    </p>
+
+                    <strong>
+                        R$ 389,90
+                    </strong>
+
+                    <button onclick="adicionarCarrinho(
+                        'Bateria Automotiva 60Ah',
+                        389.90
+                    )">
+                        Comprar
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUTO 2 -->
+
+                <div class="produto gato">
+
+                    <div class="patinhas-produto">
+                    </div>
+
+                    <div class="produto-img">
+                        <img src="pastilha.jpg" alt="Pastilha de Freio Dianteira">
+                    </div>
+
+                    <h3>
+                        Pastilha de Freio Dianteira
+                    </h3>
+
+                    <p>
+                        Frenagem de alta performance
+                        e segurança na pista.
+                    </p>
+
+                    <strong>
+                        R$ 149,90
+                    </strong>
+
+                    <button onclick="adicionarCarrinho(
+                        'Pastilha de Freio Dianteira',
+                        149.90
+                    )">
+                        Comprar
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUTO 3 -->
+
+                <div class="produto cachorro">
+
+                    <div class="patinhas-produto">
+                    </div>
+
+                    <div class="produto-img">
+                        <img src="óleo.jpg" alt="Óleo Sintético 5W30 (1L)">
+                    </div>
+
+                    <h3>
+                        Óleo Sintético 5W30 (1L)
+                    </h3>
+
+                    <p>
+                        Máxima lubrificação e proteção
+                        contra desgaste interno.
+                    </p>
+
+                    <strong>
+                        R$ 59,90
+                    </strong>
+
+                    <button onclick="adicionarCarrinho(
+                        'Óleo Sintético 5W30 (1L)',
+                        59.90
+                    )">
+                        Comprar
+                    </button>
+
+                </div>
+
+
+                <!-- PRODUTO 4 -->
+
+                <div class="produto gato">
+
+                    <div class="patinhas-produto">
+                    </div>
+
+                    <div class="produto-img">
+                        <img src="led.jpg" alt="Kit Farol LED H7 Ultra">
+                    </div>
+
+                    <h3>
+                        Kit Farol LED H7 Ultra
+                    </h3>
+
+                    <p>
+                        Iluminação de alto alcance
+                        com foco preciso.
+                    </p>
+
+                    <strong>
+                        R$ 199,90
+                    </strong>
+
+                    <button onclick="adicionarCarrinho(
+                        'Kit Farol LED H7 Ultra',
+                        199.90
+                    )">
+                        Comprar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section id="contato" class="contato">
+
+            <div class="patinhas">
+            </div>
+
+            <h2>
+                Entre em contato
+            </h2>
+
+            <p>
+                WhatsApp: (11) 94821-7395
+            </p>
+
+            <p>
+                Email: contato@autopecas.com
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JANELA DO CARRINHO
+    ========================== -->
+
+    <div id="carrinho" class="carrinho">
+
+        <div class="carrinho-conteudo">
+
+            <div class="carrinho-cabecalho">
+
+                <h2>
+                    Seu Carrinho
+                </h2>
+
+                <button
+                    class="fechar-carrinho"
+                    onclick="fecharCarrinho()">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <!-- Produtos do carrinho -->
+
+            <div id="lista-carrinho">
+
+                <p class="carrinho-vazio">
+                    Seu carrinho está vazio.
+                </p>
+
+            </div>
+
+
+            <!-- Total -->
+
+            <div class="carrinho-total">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong id="total-carrinho">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <!-- Finalizar -->
+
+            <button
+                class="finalizar"
+                onclick="finalizarCompra()">
+
+                Finalizar compra
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 AutoParts -
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
